@@ -5,4 +5,135 @@
 
 body {
     font-family: Geneva,"Microsoft YaHei";
+    background: #f4f4f4;;
+}
+
+div {
+    display: block;
+}
+
+.content-main {
+    margin-top: 20px;
+}
+.box {
+    width: 95%;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.inner-box {
+    padding: 10px;
+    font-size: 14px;
+    line-height: 150%;
+    text-align: left;
+    background-color: #fff;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+a.tab {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 5px 8px 5px 8px;
+    margin-right: 5px;
+    border-radius: 3px;
+    color: #555;
+}
+
+a.tab:hover {
+    background: #ededed;
+    color: #515053;
+    text-decoration: none;
+}
+
+a.tab-active:link,a.tab-active:visited,a.tab-active:active {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 5px 8px 5px 8px;
+    margin-right: 5px;
+    border-radius: 3px;
+    background-color: #2196fb;
+    color: #fff;
+}
+
+a:link, a:visited, a:active {
+    color: #778087;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+a.tab-vice:hover {
+    text-decoration: underline;
+}
+
+.cell {
+    padding: 10px;
+    font-size: 14px;
+    line-height: 120%;
+    text-align: left;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.post-cell {
+    padding: 14px 0 14px 80px;
+    font-size: 14px;
+    line-height: 120%;
+    text-align: left;
+    border-bottom: 1px solid #e2e2e2;
+    position: relative;
+}
+
+.post-cell .avatar {
+    position: absolute;
+    left: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.post-cell-about {
+    font-size: 10px;
+    margin-bottom: 0;
+}
+
+.post-cell-about .topic_tag {
+    background-color: #2196fb;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 12px;
+    padding: 3px 6px 3px 6px;
+    margin-right: 5px;
+    border-radius: 3px;
+}
+
+.post-cell-content span.reply-count {
+    background-color: #2196fb;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 12px;
+    padding: 6px;
+    margin-right: 5px;
+    border-radius: 9px;
+    float: right;
+}
+
+.item {
+    background-position: 0 bottom;
+    background-repeat: repeat-x;
+}
+
+.tab-vice {
+    margin: 0 5px;
+}
+
+
+.head {
+    background: white;
+    height: 500px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
 }
