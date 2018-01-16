@@ -3,5 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+    <welcome-file-list>
+        <welcome-file>admin/login.jsp</welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <servlet-name>LoginAction</servlet-name>
+        <servlet-class>com.xiaobuluo.action.LoginAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginAction</servlet-name>
+        <url-pattern>/login.jhtml</url-pattern>
+    </servlet-mapping>
 
 </web-app>
