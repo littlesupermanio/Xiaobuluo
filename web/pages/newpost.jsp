@@ -1,8 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>论坛首页</title>
+    <title>新的主题</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +9,7 @@
     <meta name="author" content="">
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../css/styles.css" rel="stylesheet"/>
+    <link href="../css/font-awesome.min.css" rel="stylesheet"/>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -44,41 +44,30 @@
 <div class="container content-main" style="padding: 0 20px;">
     <div class="row">
         <div class="col-9">
-            <div class="box">
-                <div class="inner-box">
-                    <a href="/?tab=tech" class="tab-active">校园生活</a>
-                    <a href="/?tab=tech" class="tab">职场先锋</a>
-                    <a href="/?tab=tech" class="tab">商务综合</a>
-                    <a href="/?tab=tech" class="tab">音乐专区</a>
-                    <a href="/?tab=tech" class="tab">陈独秀同志请你坐下</a>
-                </div>
-                <div class="cell" style="background-color: #f9f9f9; padding: 10px 10px 10px 20px;">
-                    <a href="/go/programmer" class="tab-vice">程序员</a>
-                    <a href="/go/python" class="tab-vice">Python</a>
-                    <a href="/go/idev" class="tab-vice">iDev</a>
-                    <a href="/go/android" class="tab-vice">Android</a>
-                    <a href="/go/linux" class="tab-vice">Linux</a>
-                    <a href="/go/nodejs" class="tab-vice">node.js</a>
-                    <a href="/go/cloud" class="tab-vice">云计算</a>
-                    <a href="/go/bb" class="tab-vice">宽带症候群</a>
-                </div>
-                <c:forEach items="${posts}" var="post">
-                    <div class="post-cell item">
-                        <img src="//v2ex.assets.uxengine.net/gravatar/96138df0c0df1532649982ae69c38c89?s=48&amp;d=retro" class="avatar" border="0" align="default">
-                        <div class="post-cell-content">
-                            <h6>
-                                <a href="/post.jhtml?type=showPost&id=${post.id}">${post.title}</a>
-                            </h6>
-                            <p class="post-cell-about">
-                                <a class="topic_tag" href="#">程序</a>
-                                • 													<a href="http://wenda.wecenter.com/people/kuaiweb" class="aw-user-name">快网 </a>				<span class="text-color-999">发起了问题 • 1 人关注 • 0 个回复 • 20 次浏览 • 4 小时前				</span>
-                                <span class="text-color-999 related-topic collapse"> • 来自相关话题</span>
-                            </p>
-                        </div>
+            <div class="box" style="padding: 20px;">
+                <form action="/post.jhtml" method="post">
+                    <h1>创建新主题</h1>
+                    <div class="form-group">
+                        <label>标题</label>
+                        <input type="text" class="form-control" placeholder="请在这里输入你的标题" name="title">
+                        <small class="form-text text-muted">您的标题必须能够展示文章的主题</small>
                     </div>
-                </c:forEach>
+                    <div class="form-group">
+                        <label>内容</label>
+                        <textarea class="form-control" placeholder="请在这里输入文章的内容" rows="10" name="body"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label style="line-height: 5px;">选择您要发表的板块</label>
+                        <select class="custom-select custom-select-lg mb-3">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane"></i>&nbsp;&nbsp;创建新的主题</button>
+                </form>
             </div>
-            <div class="sep20"></div>
         </div>
         <div class="col-3">
             <div class="head">
@@ -100,5 +89,4 @@
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
 <script src="../js/bootstrap.min.js"></script>
-
 </html>

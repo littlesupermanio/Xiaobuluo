@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <title>论坛首页</title>
@@ -50,15 +52,13 @@
                             class="avatar" border="0" align="default"></a></div>
                     <a href="/">V2EX</a> <span class="chevron">&nbsp;›&nbsp;</span> <a href="/go/programmer">程序员</a>
                     <div class="sep10"></div>
-                    <h1>C 语言为什么没有发展出类似依赖管理的框架？</h1>
-                    <small class="gray"><a href="/member/zjsxwc">zjsxwc</a> · 1 小时 57 分钟前 · 1043 次点击 &nbsp;</small>
+                    <h1>${post.title}</h1>
+                    <small class="gray"><a href="/member/zjsxwc">${post.user_id}</a> · 1 小时 57 分钟前 · 1043 次点击 &nbsp;</small>
                 </div>
                 <div class="cell">
                     <div class="topic_content">
                         <div class="markdown_body">
-                            <p>就算浏览器上 es5 这种没有依赖注入容器，但也有 requirejs 这种管理依赖的东西，</p>
-                            <p>C 语言是怎么管理代码执行时依赖关系？</p>
-                            <p>这里我指的不是 makefile 这种只能算是文件层面的依赖管理。</p>
+                            ${post.body}
                         </div>
                     </div>
                 </div>

@@ -173,12 +173,27 @@ a.dark:link, a.dark:visited, a.dark:active {
     margin: 0 5px;
 }
 
+/*右侧头像*/
 
 .head {
     background: white;
-    height: 500px;
     border-radius: 5px;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.head .avatar {
+    width: 150px;
+    height: 150px;
+    margin: 10px auto;
+    display: block;
+    border-radius: 50%;
+}
+
+.last-login {
+    font-size: 8px;
+    text-align: center;
 }
 
 
