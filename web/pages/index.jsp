@@ -65,7 +65,7 @@
                     <img src="//v2ex.assets.uxengine.net/gravatar/96138df0c0df1532649982ae69c38c89?s=48&amp;d=retro" class="avatar" border="0" align="default">
                     <div class="post-cell-content">
                         <h6>
-                            <a href="/t/423387#reply6">那位大神帮我看看 FULL GC 时间过长怎么定位啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</a>
+                            <a href="/t/423387#reply6">那位大神帮我看看 FULL GC 时间过长怎么定位啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</a>
                         </h6>
                         <p class="post-cell-about">
                             <a class="topic_tag" href="#">程序</a>

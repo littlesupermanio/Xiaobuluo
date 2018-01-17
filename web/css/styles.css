@@ -90,7 +90,6 @@ a.tab-vice:hover {
     position: absolute;
     left: 10px;
     margin-left: 10px;
-    border-radius: 5px;
 }
 
 .post-cell-about {
@@ -121,6 +120,50 @@ a.tab-vice:hover {
     float: right;
 }
 
+/* 回复 */
+
+.reply-cell {
+    padding: 0 0 0 30px;
+    font-size: 14px;
+    line-height: 120%;
+    text-align: left;
+    position: relative;
+}
+
+.reply-cell .avatar {
+    position: absolute;
+    left: 0;
+}
+
+.replyer-name {
+    margin-left: 30px;
+    font-weight: 600;
+}
+
+.reply-content {
+    margin-left: 30px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #000;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+span.ago {
+    font-size: 11px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+img.avatar {
+    border-radius: 4px;
+}
+
+a.dark:link, a.dark:visited, a.dark:active {
+    color: gray;
+    text-decoration: none;
+}
+
 .item {
     background-position: 0 bottom;
     background-repeat: repeat-x;
@@ -137,3 +180,40 @@ a.tab-vice:hover {
     border-radius: 5px;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
 }
+
+
+
+.post-header {
+    padding: 10px;
+    font-size: 15px;
+    line-height: 120%;
+    text-align: left;
+    border-bottom: 1px solid #e2e2e2;
+    overflow: auto;
+}
+
+.sep5 {
+    height: 5px;
+}
+
+.sep10 {
+    height: 10px;
+}
+
+.sep20 {
+    height: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 150%;
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+.gray {
+    color:gray;
+}
+
+

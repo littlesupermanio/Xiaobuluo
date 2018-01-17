@@ -44,76 +44,65 @@
     <div class="row">
         <div class="col-9">
             <div class="box">
-                <div class="inner-box">
-                    <a href="/?tab=tech" class="tab-active">校园生活</a>
-                    <a href="/?tab=tech" class="tab">职场先锋</a>
-                    <a href="/?tab=tech" class="tab">商务综合</a>
-                    <a href="/?tab=tech" class="tab">音乐专区</a>
-                    <a href="/?tab=tech" class="tab">陈独秀同志请你坐下</a>
+                <div class="post-header">
+                    <div class="float-right"><a href="/member/zjsxwc"><img
+                            src="//v2ex.assets.uxengine.net/avatar/d9d0/91e2/46437_large.png?m=1500725463"
+                            class="avatar" border="0" align="default"></a></div>
+                    <a href="/">V2EX</a> <span class="chevron">&nbsp;›&nbsp;</span> <a href="/go/programmer">程序员</a>
+                    <div class="sep10"></div>
+                    <h1>C 语言为什么没有发展出类似依赖管理的框架？</h1>
+                    <small class="gray"><a href="/member/zjsxwc">zjsxwc</a> · 1 小时 57 分钟前 · 1043 次点击 &nbsp;</small>
                 </div>
-                <div class="cell" style="background-color: #f9f9f9; padding: 10px 10px 10px 20px;">
-                    <a href="/go/programmer" class="tab-vice">程序员</a>
-                    <a href="/go/python" class="tab-vice">Python</a>
-                    <a href="/go/idev" class="tab-vice">iDev</a>
-                    <a href="/go/android" class="tab-vice">Android</a>
-                    <a href="/go/linux" class="tab-vice">Linux</a>
-                    <a href="/go/nodejs" class="tab-vice">node.js</a>
-                    <a href="/go/cloud" class="tab-vice">云计算</a>
-                    <a href="/go/bb" class="tab-vice">宽带症候群</a>
-                </div>
-                <div class="post-cell item">
-                    <img src="//v2ex.assets.uxengine.net/gravatar/96138df0c0df1532649982ae69c38c89?s=48&amp;d=retro" class="avatar" border="0" align="default">
-                    <div class="post-cell-content">
-                        <h6>
-                            <a href="/t/423387#reply6">那位大神帮我看看 FULL GC 时间过长怎么定位啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</a>
-                        </h6>
-                        <p class="post-cell-about">
-                            <a class="topic_tag" href="#">程序</a>
-                            • 													<a href="http://wenda.wecenter.com/people/kuaiweb" class="aw-user-name">快网 </a>				<span class="text-color-999">发起了问题 • 1 人关注 • 0 个回复 • 20 次浏览 • 4 小时前				</span>
-                            <span class="text-color-999 related-topic collapse"> • 来自相关话题</span>
-                        </p>
+                <div class="cell">
+                    <div class="topic_content">
+                        <div class="markdown_body">
+                            <p>就算浏览器上 es5 这种没有依赖注入容器，但也有 requirejs 这种管理依赖的东西，</p>
+                            <p>C 语言是怎么管理代码执行时依赖关系？</p>
+                            <p>这里我指的不是 makefile 这种只能算是文件层面的依赖管理。</p>
+                        </div>
                     </div>
                 </div>
-                <div class="post-cell item">
-                    <img src="//v2ex.assets.uxengine.net/gravatar/96138df0c0df1532649982ae69c38c89?s=48&amp;d=retro" class="avatar" border="0" align="default">
-                    <div class="post-cell-content">
-                        <h6>
-                            <a href="/t/423387#reply6">那位大神帮我看看 FULL GC 时间过长怎么定位啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</a>
-                        </h6>
-                        <p class="post-cell-about">
-                            <a class="topic_tag" href="#">程序</a>
-                            • 													<a href="http://wenda.wecenter.com/people/kuaiweb" class="aw-user-name">快网 </a>				<span class="text-color-999">发起了问题 • 1 人关注 • 0 个回复 • 20 次浏览 • 4 小时前				</span>
-                            <span class="text-color-999 related-topic collapse"> • 来自相关话题</span>
-                        </p>
+            </div>
+            <div class="sep20"></div>
+            <div class="box">
+                <div class="cell">
+                    <div class="reply-cell">
+                        <div class="avatar">
+                            <img src="//v2ex.assets.uxengine.net/gravatar/d99fb9ac42d23b2f3567a945c7576c08?s=48&amp;d=retro" class="avatar" border="0" align="default">
+                        </div>
+                        <strong><a href="/member/neoblackcap" class="dark replyer-name">neoblackcap</a></strong>
+                        <span class="ago">1 小时 55 分钟前</span>
+                        <div class="sep5"></div>
+                        <div class="reply-content">
+                            asdfasdf <br>
+                            asdf
+                        </div>
                     </div>
                 </div>
-                <div class="post-cell item">
-                    <img src="//v2ex.assets.uxengine.net/gravatar/96138df0c0df1532649982ae69c38c89?s=48&amp;d=retro" class="avatar" border="0" align="default">
-                    <div class="post-cell-content">
-                        <h6>
-                            <a href="/t/423387#reply6">那位大神帮我看看 FULL GC 时间过长怎么定位啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</a>
-                        </h6>
-                        <p class="post-cell-about">
-                            <a class="topic_tag" href="#">程序</a>
-                            • 													<a href="http://wenda.wecenter.com/people/kuaiweb" class="aw-user-name">快网 </a>				<span class="text-color-999">发起了问题 • 1 人关注 • 0 个回复 • 20 次浏览 • 4 小时前				</span>
-                            <span class="text-color-999 related-topic collapse"> • 来自相关话题</span>
-                        </p>
+                <div class="cell">
+                    <div class="reply-cell">
+                        <div class="avatar">
+                            <img src="//v2ex.assets.uxengine.net/gravatar/d99fb9ac42d23b2f3567a945c7576c08?s=48&amp;d=retro" class="avatar" border="0" align="default">
+                        </div>
+                        <strong><a href="/member/neoblackcap" class="dark replyer-name">neoblackcap</a></strong>
+                        <div class="reply-content">
+                            asdfasdf <br>
+                            asdf
+                        </div>
                     </div>
                 </div>
-                <div class="post-cell item">
-                    <img src="//v2ex.assets.uxengine.net/gravatar/96138df0c0df1532649982ae69c38c89?s=48&amp;d=retro" class="avatar" border="0" align="default">
-                    <div class="post-cell-content">
-                        <h6>
-                            <a href="/t/423387#reply6">那位大神帮我看看 FULL GC 时间过长怎么定位啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</a>
-                        </h6>
-                        <p class="post-cell-about">
-                            <a class="topic_tag" href="#">程序</a>
-                            • 													<a href="http://wenda.wecenter.com/people/kuaiweb" class="aw-user-name">快网 </a>				<span class="text-color-999">发起了问题 • 1 人关注 • 0 个回复 • 20 次浏览 • 4 小时前				</span>
-                            <span class="text-color-999 related-topic collapse"> • 来自相关话题</span>
-                        </p>
+                <div class="cell">
+                    <div class="reply-cell">
+                        <div class="avatar">
+                            <img src="//v2ex.assets.uxengine.net/gravatar/d99fb9ac42d23b2f3567a945c7576c08?s=48&amp;d=retro" class="avatar" border="0" align="default">
+                        </div>
+                        <strong><a href="/member/neoblackcap" class="dark replyer-name">neoblackcap</a></strong>
+                        <div class="reply-content">
+                            asdfasdf <br>
+                            asdf
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="head col-3">
