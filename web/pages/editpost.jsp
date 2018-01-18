@@ -20,16 +20,18 @@
     <div class="row">
         <div class="col-9">
             <div class="box" style="padding: 20px;">
-                <form action="/post.jhtml" method="post">
+                <form action="/post.jhtml" method="post" id="editpost_form">
                     <h1>修改主题</h1>
                     <div class="form-group">
                         <label>标题</label>
-                        <input type="text" class="form-control" placeholder="请在这里输入你的标题" name="title">
+                        <input type="text"  id="title" class="form-control" placeholder="请在这里输入你的标题" name="title">
                         <small class="form-text text-muted">您的标题必须能够展示文章的主题</small>
+
                     </div>
                     <div class="form-group">
                         <label>内容</label>
-                        <textarea class="form-control" placeholder="请在这里输入文章的内容" rows="10" name="body"></textarea>
+                        <textarea id="content" class="form-control" placeholder="请在这里输入文章的内容" rows="10" name="body"></textarea>
+
                     </div>
                     <div class="form-group">
                         <label style="line-height: 5px;">选择您要发表的板块</label>
@@ -57,4 +59,24 @@
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
 <script src="../js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $("#editpost_form").bind('submit',function () {  //给form标签绑定submit事件
+        var i=0;
+        this.$("input").each(function(){  //遍历input标签，判断是否有内容未填写
+            var vl=$(this).val();
+            if(vl==""){
+                i=1;
+            }
+        });
+        var t=this.$('textarea').val();  //判断textarea标签是否填写
+        if (t=='') {
+            i=1;
+        }
+        if (i==1) {  //如果有未填写的，则return false阻止提交
+            alert('请将信息填写完整');
+            return false;
+        }
+    });
+</script>
 </html>
