@@ -41,4 +41,31 @@
         <servlet-name>RegisterAction</servlet-name>
         <url-pattern>/register.jhtml</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>IndexAction</servlet-name>
+        <servlet-class>com.xiaobuluo.action.IndexAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IndexAction</servlet-name>
+        <url-pattern>/index.jhtml</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SectionAction</servlet-name>
+        <servlet-class>com.xiaobuluo.action.SectionAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SectionAction</servlet-name>
+        <url-pattern>/section.jhtml</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogoutAction</servlet-name>
+        <servlet-class>com.xiaobuluo.action.LogoutAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutAction</servlet-name>
+        <url-pattern>/logout.jhtml</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -22,19 +22,13 @@ public class UserDaoImpl implements UserDao {
         ResultSet rs = null;
 
         String sql = "select * from users where id=?";
-        User user = new User();
+        User user = null;
         try {
             ps = con.prepareStatement(sql);
             ps.setInt(1,id);
             rs = ps.executeQuery();
             rs.next();
-            user.setId(rs.getInt("id"));
-            user.setEmail(rs.getString("email"));
-            user.setAvatar(rs.getString("avatar"));
-            user.setName(rs.getString("name"));
-            user.setPhone(rs.getString("phone"));
-            user.setRegister_date(rs.getDate("register_date"));
-            user.setLastlogin_date(rs.getDate("lastlogin_date"));
+            user = Packager.packUser(rs);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally{

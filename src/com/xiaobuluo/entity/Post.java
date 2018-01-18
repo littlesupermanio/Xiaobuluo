@@ -13,7 +13,17 @@ public class Post {
     private Date update_at;
     private String time_interval;
     private User user;
+    private Section section;
+
     private List<Comment> comments;
+
+    public Section getSection() {
+        return section;
+    }
+
+    public void setSection(Section section) {
+        this.section = section;
+    }
 
     public List<Comment> getComments() {
         return comments;

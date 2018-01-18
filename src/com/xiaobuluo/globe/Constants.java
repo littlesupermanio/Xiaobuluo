@@ -4,8 +4,11 @@ public class Constants {
 
     public static String POST_SUBMIT_POST = "submitPost";
     public static String POST_DELETE_POST = "deletePost";
+    public static String POST_NEW_POST = "newPost";
     public static String POST_SHOW_POST = "showPost";
     public static String POST_SHOW_ALL_POSTS = "showAllPosts";
+    public static String POST_EDIT_POST = "editPost";
+    public static String POST_SHOW_EDIT_POST = "editPost";
 
     // 获取待评论订单操作标识符
     public static String COMMENT_GET_WAIT_COMMENTS = "getWaitComments";

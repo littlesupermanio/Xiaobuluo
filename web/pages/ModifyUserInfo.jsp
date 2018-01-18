@@ -24,19 +24,19 @@
                     <h1 style="font-weight: bold">用户中心</h1></br>
                     <div class="form-group">
                         <label>姓名:</label>
-                        <input type="text"  id="title" class="form-control" placeholder="请在这里输入你修改的姓名" name="title">
+                        <input type="text" class="form-control" placeholder="请在这里输入你修改的姓名" name="title">
                     </div>
                     <div class="form-group">
                         <label>密码:</label>
-                        <input type="text"  id="title" class="form-control" placeholder="请在这里输入你修改的密码" name="title">
+                        <input type="text" class="form-control" placeholder="请在这里输入你修改的密码" name="title">
                     </div>
                     <div class="form-group">
                         <label>电话:</label>
-                        <input type="text"  id="title" class="form-control" placeholder="请在这里输入你修改的电话" name="title">
+                        <input type="text"  class="form-control" placeholder="请在这里输入你修改的电话" name="title">
                     </div>
                     <div class="form-group">
                         <label>email:</label>
-                        <input type="text"  id="title" class="form-control" placeholder="请在这里输入你修改的email" name="title">
+                        <input type="text" class="form-control" placeholder="请在这里输入你修改的email" name="title">
                     </div>
                     <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane"></i>&nbsp;&nbsp;确认</button>
                 </form>

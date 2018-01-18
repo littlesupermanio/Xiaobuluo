@@ -27,7 +27,7 @@
                     <%--<a href="/">V2EX</a> <span class="chevron">&nbsp;›&nbsp;</span> <a href="/go/programmer">程序员</a>--%>
                     <div class="sep10"></div>
                     <h1>${post.title}</h1>
-                    <small class="gray"><a href="/member/zjsxwc">${post.user_id}</a> · ${post.time_interval}前 · 1043 次点击 &nbsp;</small>
+                    <small class="gray"><a href="/member/zjsxwc">${post.user.name}</a> · ${post.time_interval}前&nbsp;</small>
                 </div>
                 <div class="cell">
                     <div class="topic_content">
@@ -36,20 +36,29 @@
                         </div>
                     </div>
                 </div>
+                <div class="cell bg-light" style="padding: 5px;">
+                    <div class="text-right text-dark">
+                        <a href="/post.jhtml?type=deletePost&id=${post.id}">编辑</a>&nbsp;&nbsp;
+                        <a href="/post.jhtml?type=deletePost&id=${post.id}">删除</a>
+                    </div>
+                </div>
             </div>
             <div class="sep20"></div>
             <div class="box">
-                <c:forEach items="${comments}" var="comment">
+                <c:forEach items="${post.comments}" var="comment">
                     <div class="cell">
                         <div class="reply-cell">
                             <div class="avatar">
                                 <img src="//v2ex.assets.uxengine.net/gravatar/d99fb9ac42d23b2f3567a945c7576c08?s=48&amp;d=retro" class="avatar" border="0" align="default">
                             </div>
-                            <strong><a href="/member/neoblackcap" class="dark replyer-name"></a></strong>
-                            <span class="ago">${comment.time_interval}</span>
+                            <strong><a href="/member/neoblackcap" class="dark replyer-name">${comment.user.name}</a></strong>
+                            <span class="ago">${comment.time_interval}前</span>
                             <div class="sep5"></div>
                             <div class="reply-content">
                                 ${comment.body}
+                            </div>
+                            <div class="text-right text-dark">
+                                <a href="/post.jhtml?type=deletePost&id=${comment.id}">删除</a>
                             </div>
                         </div>
                     </div>
@@ -69,14 +78,7 @@
             <div class="sep20"></div>
         </div>
         <div class="col-3">
-            <div class="head">
-                <img src="../storage/avatar/avatar.png" alt="" class="avatar">
-                <h4 class="text-center" >小超人</h4>
-                <div class="sep20"></div>
-                <p class="last-login">上次登陆时间：2018年1月17日21:31:09</p>
-                <button type="button" class="btn btn-primary btn-block" style="width: 80%;margin:0 auto;"><i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;&nbsp;用户中心</button>
-
-            </div>
+            <%@ include file="/common/sidebar.jsp"%>
         </div>
     </div>
 </div>

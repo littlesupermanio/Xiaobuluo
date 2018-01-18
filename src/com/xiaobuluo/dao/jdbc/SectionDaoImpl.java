@@ -1,138 +1,117 @@
 package com.xiaobuluo.dao.jdbc;
 
-import com.xiaobuluo.dao.PostDao;
-import com.xiaobuluo.entity.Post;
-import com.xiaobuluo.entity.User;
+import com.xiaobuluo.dao.SectionDao;
+import com.xiaobuluo.entity.Section;
 import com.xiaobuluo.util.DataSourceUtil;
 import com.xiaobuluo.util.Packager;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostDaoImpl implements PostDao {
-
+public class SectionDaoImpl implements SectionDao {
     @Override
-    public List<Post> getAllPosts() {
+    public List<Section> getAllSections() {
         Connection con = DataSourceUtil.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sql = "select * from posts ORDER BY created_at desc";
+        String sql = "select * from sections";
 
-        List<Post> posts = new ArrayList<>();
+        List<Section> sections = new ArrayList<>();
         try {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
-
             while(rs.next()){
-                Post post = Packager.packPost(rs);
-                posts.add(post);
+                Section section = Packager.packSection(rs);
+                sections.add(section);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally{
             DataSourceUtil.close(rs, ps, con);
         }
-        return posts;
+        return sections;
     }
 
+
+
     @Override
-    public Post getPostById(int id) {
+    public List<Section> getSubSectionsBySectionId(int id) {
         Connection con = DataSourceUtil.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sql = "select * from posts where id=?";
+        String sql = "select * from sections where parent_id = ? ";
+
+        List<Section> sections = new ArrayList<>();
         try {
             ps = con.prepareStatement(sql);
             ps.setInt(1,id);
             rs = ps.executeQuery();
             while(rs.next()){
-                Post post = Packager.packPost(rs);
-                return post;
+                Section section = Packager.packSection(rs);
+                sections.add(section);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally{
             DataSourceUtil.close(rs, ps, con);
         }
-        return null;
+        return sections;
     }
 
     @Override
-    public List<Post> getPostsByUserId(int id) {
+    public List<Section> getMainSections() {
         Connection con = DataSourceUtil.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sql = "select * from posts where user_id = ? ORDER BY created_at desc";
+        String sql = "select * from sections where parent_id is NULL ";
 
-        List<Post> posts = new ArrayList<>();
+        List<Section> sections = new ArrayList<>();
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1,id);
             rs = ps.executeQuery();
 
             while(rs.next()){
-                Post post = Packager.packPost(rs);
-                posts.add(post);
+                Section section = Packager.packSection(rs);
+                sections.add(section);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally{
             DataSourceUtil.close(rs, ps, con);
         }
-        return posts;
+        return sections;
     }
 
     @Override
-    public List<Post> getPostsBySectionId(int id) {
+    public Section getSectionById(int id) {
         Connection con = DataSourceUtil.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sql = "select * from posts where section_id = ? ORDER BY created_at desc";
+        String sql = "select * from sections where id = ? ";
 
-        List<Post> posts = new ArrayList<>();
+        Section section = new Section();
         try {
             ps = con.prepareStatement(sql);
             ps.setInt(1,id);
             rs = ps.executeQuery();
-
             while(rs.next()){
-                Post post = Packager.packPost(rs);
-                posts.add(post);
+                section = Packager.packSection(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally{
             DataSourceUtil.close(rs, ps, con);
         }
-        return posts;
+        return section;
     }
-
-
-    @Override
-    public void deletePostById(int id) {
-        Connection con = DataSourceUtil.getConnection();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        String sql = "delete from posts where id=?";
-        try {
-            ps = con.prepareStatement(sql);
-            ps.setInt(1,id);
-            ps.execute();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally{
-            DataSourceUtil.close(rs, ps, con);
-        }
-    }
-
-
 
 
 }

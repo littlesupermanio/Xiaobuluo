@@ -8,28 +8,28 @@ import java.util.Date;
 public class Utils {
     public static String diffTimeFromNow(Date d1)
     {
-        Date now = new Date();
+        Date currDate = new Date(System.currentTimeMillis());
+        long diff = currDate.getTime() - d1.getTime(); // 得到的差值是微秒级别，可以忽略
+        long days = diff / (1000 * 60 * 60 * 24);
+        long hours = (diff - days * (1000 * 60 * 60 * 24)) / (1000 * 60 * 60);
+        long minutes = (diff - days * (1000 * 60 * 60 * 24) - hours * (1000 * 60 * 60)) / (1000 * 60);
+        long seconds = (diff - days * (1000 * 60 * 60 * 24) - hours * (1000 * 60 * 60) - minutes * (1000 * 60)) / (1000);
         String interval = "";
-        long l=now.getTime()-d1.getTime();
-        long day=l/(24*60*60*1000);
-        long hour=(l/(60*60*1000)-day*24);
-        long min=((l/(60*1000))-day*24*60-hour*60);
-        long s=(l/1000-day*24*60*60-hour*60*60-min*60);
-        if(day!=0)
+        if(days!=0)
         {
-            interval += day + "天";
+            interval += days + "天";
         }
-        if(hour!=0)
+        if(hours!=0)
         {
-            interval += hour + "小时";
+            interval += hours + "小时";
         }
-        if(min!=0)
+        if(minutes!=0)
         {
-            interval += min + "分";
+            interval += minutes + "分";
         }
-        if(s!=0)
+        if(seconds!=0)
         {
-            interval += s + "秒";
+            interval += seconds + "秒";
         }
         return interval;
     }

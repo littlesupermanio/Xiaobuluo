@@ -1,10 +1,13 @@
 package com.xiaobuluo.entity;
 
+import java.util.List;
+
 public class Section {
     private Integer id;
     private String name;
     private Integer manager_id;
     private Integer parent_id;
+    private List<Section> subSections;
 
     public Integer getId() {
         return id;
@@ -36,5 +39,13 @@ public class Section {
 
     public void setParent_id(Integer parent_id) {
         this.parent_id = parent_id;
+    }
+
+    public List<Section> getSubSections() {
+        return subSections;
+    }
+
+    public void setSubSections(List<Section> subSections) {
+        this.subSections = subSections;
     }
 }

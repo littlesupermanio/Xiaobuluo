@@ -10,39 +10,37 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="${pageContext.request.contextPath }/post.jhtml?type=showAllPosts">首页</a>
+                    <a class="nav-link" href="/index.jhtml">首页</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">话题</a>
+                    <a class="nav-link" href="/section.jhtml?sectionId=1">话题广场</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">用户中心</a>
-                </li>
-
-            <ul class="navbar-nav mr-auto">
-            <c:choose>
-                <c:when test="${empty user}">
-
-                    <li class="nav-item active">
-                        <a href="${pageContext.request.contextPath }/pages/login.jsp">请登录</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a
-                                href="${pageContext.request.contextPath }/register.jhtml">免费注册</a>
-                    </li>
-                </c:when>
-                <c:otherwise>
-                <c:choose>
-                    <c:when test="${not empty user.name }">${user.name}</c:when>
-                </c:choose>
-                    <a href="${pageContext.request.contextPath }/<%=response.encodeURL("logout.jhtml")%>">注销</a>
-                </c:otherwise>
-            </c:choose>
             </ul>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">搜索</button>
-            </form>
+            <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+                <c:choose>
+                    <c:when test="${empty user}">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="${pageContext.request.contextPath }/pages/login.jsp">登录</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="${pageContext.request.contextPath }/pages/register.jsp">注册</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <c:choose>
+                            <c:when test="${not empty user.name }">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="${pageContext.request.contextPath }/pages/login.jsp">${user.name}</a>
+                                </li>
+                            </c:when>
+                        </c:choose>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout.jhtml">注销</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+            </ul>
         </div>
     </div>
 </nav>

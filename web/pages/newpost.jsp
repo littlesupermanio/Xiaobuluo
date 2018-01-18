@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-9">
             <div class="box" style="padding: 20px;">
-                <form action="/post.jhtml" method="post">
+                <form action="/post.jhtml" method="post" id="editpost_form">
                     <h1>创建新主题</h1>
                     <div class="form-group">
                         <label>标题</label>
@@ -32,11 +32,11 @@
                     </div>
                     <div class="form-group">
                         <label style="line-height: 5px;">选择您要发表的板块</label>
-                        <select class="custom-select custom-select-lg mb-3">
+                        <select class="custom-select custom-select-lg mb-3" name="section">
                             <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <c:forEach items="${allSections}" var="section">
+                                <option value="${section.id}">${section.name}</option>
+                            </c:forEach>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane"></i>&nbsp;&nbsp;创建新的主题</button>
@@ -56,4 +56,27 @@
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#editpost_form').bind('submit',function () {  //给form标签绑定submit事件
+            var i=0;
+            this.$("input").each(function(){  //遍历input标签，判断是否有内容未填写
+                var vl=$(this).val();
+                if(vl==""){
+                    i=1;
+                }
+            });
+            var t=this.$('textarea').val();  //判断textarea标签是否填写
+            if (t=='') {
+                i=1;
+            }
+            if (i==1) {  //如果有未填写的，则return false阻止提交
+                alert('请将信息填写完整');
+                return false;
+            }
+        });
+    });
+
+</script>
+
 </html>

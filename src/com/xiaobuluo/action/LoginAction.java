@@ -43,6 +43,7 @@ public class LoginAction extends HttpServlet {
         if (user == null || !user.getPassword().equals(Utils.toMD5(password))) {
             Message msg = Message.failedMessage("用户名或密码错误","/pages/login.jsp");
             request.setAttribute("message",msg);
+            request.getRequestDispatcher("/pages/message.jsp").forward(request,response);
             return;
         }
 
@@ -50,6 +51,7 @@ public class LoginAction extends HttpServlet {
         Message msg = Message.successMessage("登陆成功","/index.jhtml");
         request.setAttribute("message",msg);
         saveUserInfo(request,user);
+        System.out.println(request.getSession().getAttribute("user"));
         request.getRequestDispatcher("/pages/message.jsp").forward(request,response);
 
     }

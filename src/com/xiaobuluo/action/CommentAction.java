@@ -2,6 +2,7 @@ package com.xiaobuluo.action;
 
 import com.xiaobuluo.entity.Comment;
 import com.xiaobuluo.entity.Message;
+import com.xiaobuluo.entity.User;
 import com.xiaobuluo.globe.Constants;
 import com.xiaobuluo.service.CommentService;
 import com.xiaobuluo.service.impl.CommentServiceImpl;
@@ -27,14 +28,22 @@ public class CommentAction extends HttpServlet {
         this.response = response;
         request.setCharacterEncoding("UTF-8");
         String type = request.getParameter("type");
+        User user = (User) request.getSession().getAttribute("user");
         if(Constants.COMMENT_SUBMIT_COMMENT.equals(type))
         {
+            if(request.getSession().getAttribute("user")==null)
+            {
+                Message msg = Message.failedMessage("请登录后操作","/pages/login.jsp");
+                request.setAttribute("message",msg);
+                request.getRequestDispatcher("/pages/message.jsp").forward(request,response);
+                return;
+            }
+            Comment comment = new Comment();
             Integer postId = Integer.parseInt(request.getParameter("postId"));
             String comment_body = request.getParameter("comment_body");
             comment_body = comment_body.replace("\n","<br />");
-            Comment comment = new Comment();
             comment.setPost_id(postId);
-            comment.setUser_id(1);
+            comment.setUser_id(user.getId());
             comment.setBody(comment_body);
             CommentService commentService = new CommentServiceImpl();
             commentService.addCommentToPost(comment);

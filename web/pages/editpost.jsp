@@ -24,14 +24,12 @@
                     <h1>修改主题</h1>
                     <div class="form-group">
                         <label>标题</label>
-                        <input type="text"  id="title" class="form-control" placeholder="请在这里输入你的标题" name="title">
+                        <input type="text" class="form-control" placeholder="请在这里输入你的标题" name="title" value="${post.title}">
                         <small class="form-text text-muted">您的标题必须能够展示文章的主题</small>
-
                     </div>
                     <div class="form-group">
                         <label>内容</label>
-                        <textarea id="content" class="form-control" placeholder="请在这里输入文章的内容" rows="10" name="body"></textarea>
-
+                        <textarea class="form-control" placeholder="请在这里输入文章的内容" rows="10" name="body">${post.body}</textarea>
                     </div>
                     <div class="form-group">
                         <label style="line-height: 5px;">选择您要发表的板块</label>
