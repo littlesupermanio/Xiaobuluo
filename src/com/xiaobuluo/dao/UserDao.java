@@ -12,4 +12,6 @@ public interface UserDao {
     public void saveUser(User user);
 
     public void updateUserPassword(User user);
+
+    public User getUserByCondition(String condition);
 }

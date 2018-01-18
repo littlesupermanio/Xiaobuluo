@@ -15,4 +15,6 @@ public class Constants {
     public static String COMMENT_SUBMIT_COMMENT = "submitComment";
     public static String COMMENT_DELETE_COMMENT = "deleteComment";
     public static String COMMENT_EDIT_COMMENT = "editComment";
+
+    public static String USER_KEY = "user";
 }

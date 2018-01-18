@@ -55,13 +55,7 @@
             <div class="sep20"></div>
         </div>
         <div class="col-3">
-            <div class="head">
-                <img src="../storage/avatar/avatar.png" alt="" class="avatar">
-                <h4 class="text-center" >小超人</h4>
-                <div class="sep20"></div>
-                <p class="last-login">上次登陆时间：2018年1月17日21:31:09</p>
-                <button type="button" class="btn btn-primary btn-block" style="width: 80%;margin:0 auto;"><i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;&nbsp;用户中心</button>
-            </div>
+            <%@ include file="/common/sidebar.jsp"%>
         </div>
     </div>
 </div>

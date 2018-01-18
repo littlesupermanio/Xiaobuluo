@@ -3,6 +3,7 @@ package com.xiaobuluo.dao.jdbc;
 import com.xiaobuluo.dao.UserDao;
 import com.xiaobuluo.entity.User;
 import com.xiaobuluo.util.DataSourceUtil;
+import com.xiaobuluo.util.Packager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -79,5 +80,30 @@ public class UserDaoImpl implements UserDao {
         } finally{
             DataSourceUtil.close(rs, ps, con);
         }
+    }
+
+
+    @Override
+    public User getUserByCondition(String condition) {
+        Connection con = DataSourceUtil.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        User user = null;
+
+        String sql = "SELECT * FROM users u WHERE u.name = ? or u.email = ?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1,condition);
+            ps.setString(2,condition);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                user = Packager.packUser(rs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            DataSourceUtil.close(rs, ps, con);
+        }
+        return user;
     }
 }

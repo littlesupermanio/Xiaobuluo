@@ -18,12 +18,11 @@ public class Packager {
         User user = new User();
         user.setId(rs.getInt("id"));
         user.setPassword(rs.getString("password"));
-        user.setPhone(rs.getString("phone"));
         user.setName(rs.getString("name"));
         user.setAvatar(rs.getString("avatar"));
         user.setEmail(rs.getString("email"));
-        user.setRegister_date(rs.getDate("register_date"));
-        user.setLastlogin_date(rs.getDate("lastlogin_date"));
+        user.setRegister_date(rs.getDate("created_at"));
+        user.setLastlogin_date(rs.getDate("updated_at"));
         return user;
     }
 
