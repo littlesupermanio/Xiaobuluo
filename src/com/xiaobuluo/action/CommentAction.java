@@ -1,6 +1,7 @@
 package com.xiaobuluo.action;
 
 import com.xiaobuluo.entity.Comment;
+import com.xiaobuluo.entity.Message;
 import com.xiaobuluo.globe.Constants;
 import com.xiaobuluo.service.CommentService;
 import com.xiaobuluo.service.impl.CommentServiceImpl;
@@ -37,9 +38,19 @@ public class CommentAction extends HttpServlet {
             comment.setBody(comment_body);
             CommentService commentService = new CommentServiceImpl();
             commentService.addCommentToPost(comment);
-            System.out.println("添加评论成功");
+            Message message = new Message();
+            String jumpUrl = "/post.jhtml?type=showPost&id="+postId;
+            message.setType("success");
+            message.setIcon("check");
+            message.setContent("添加评论成功！");
+            message.setJumpUrl(jumpUrl);
+            request.setAttribute("message",message);
+            request.getRequestDispatcher("/pages/message.jsp").forward(request,response);
         }
     }
+
+
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);

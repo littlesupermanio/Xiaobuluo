@@ -32,4 +32,13 @@
         <servlet-name>CommentAction</servlet-name>
         <url-pattern>/comment.jhtml</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterAction</servlet-name>
+        <servlet-class>com.xiaobuluo.action.RegisterAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterAction</servlet-name>
+        <url-pattern>/register.jhtml</url-pattern>
+    </servlet-mapping>
 </web-app>

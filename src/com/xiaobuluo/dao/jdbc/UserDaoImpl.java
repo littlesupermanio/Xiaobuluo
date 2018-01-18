@@ -41,4 +41,43 @@ public class UserDaoImpl implements UserDao {
         }
         return user;
     }
+
+    @Override
+    public void saveUser(User user) {
+        String sql = "INSERT INTO users(name,email,password) VALUES(?,?,?)";
+        Connection con = DataSourceUtil.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1,user.getName());
+            ps.setString(2,user.getEmail());
+            ps.setString(3,user.getPassword());
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            DataSourceUtil.close(rs, ps, con);
+        }
+    }
+
+    @Override
+    public void updateUserPassword(User user) {
+        String sql = "update user set pass = ? where id = ?";
+        Connection con = DataSourceUtil.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1,user.getPassword());
+            ps.setInt(2,user.getId());
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            DataSourceUtil.close(rs, ps, con);
+        }
+    }
 }

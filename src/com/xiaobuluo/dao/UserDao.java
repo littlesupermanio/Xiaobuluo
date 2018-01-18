@@ -8,4 +8,8 @@ import com.xiaobuluo.entity.User;
  */
 public interface UserDao {
     public User getUserById(int id);
+
+    public void saveUser(User user);
+
+    public void updateUserPassword(User user);
 }

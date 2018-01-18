@@ -59,7 +59,7 @@
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" style="margin-left: 0">
-                        <label class="form-check-label">三十天内不再登录</label>
+                        <label class="form-check-label">记住用户名</label>
                     </div>
                     <button type="submit" class="btn btn-primary">登录</button>
                 </form>

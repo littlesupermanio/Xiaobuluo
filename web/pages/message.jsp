@@ -44,13 +44,29 @@
 
 <div class="container content-main" style="padding: 100px 20px;">
     <div class="box" style="width: 80%; margin: 0 auto;padding: 20px;">
-        <h2 class="text-center"><i class="fa fa-check fa-4x text-success"></i></h2>
+        <h2 class="text-center"><i class="fa fa-${message.icon} fa-4x text-${message.type}"></i></h2>
         <div class="sep20"></div>
-        <h4 class="text-center">提交成功！</h4>
+        <h4 class="text-center">${message.content}！</h4>
         <div class="sep10"></div>
-        <h6 class="text-dark text-center">五秒后返回原来的网页</h6>
+        <h6 class="text-dark text-center"><span id="jumpTo">5</span>秒后跳转至<a href="${message.jumpUrl}">网页</a></h6>
     </div>
 </div>
-
+<script type="text/javascript">
+    function countDown(secs,surl){
+        //alert(surl);
+        var jumpTo = document.getElementById('jumpTo');
+        jumpTo.innerHTML=secs;
+        if(--secs>0){
+            setTimeout("countDown("+secs+",'"+surl+"')",1000);
+        }
+        else
+        {
+            location.href=surl;
+        }
+    }
+</script>
+<script type="text/javascript">
+    countDown(5,'${message.jumpUrl}');
+</script>
 </body>
 </html>
