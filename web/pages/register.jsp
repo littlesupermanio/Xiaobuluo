@@ -59,7 +59,11 @@
                     </div>
                     <div class="form-group">
                         <label >邮箱</label>
-                        <input type="email" class="form-control"  placeholder="请输入您的邮箱">
+                        <input type="email" id="email" class="form-control"  placeholder="请输入您的邮箱">
+                        <div class="invalid-feedback" id="span">
+                            Please provide a valid city.
+                        </div>
+
                     </div>
                     <button type="submit" class="btn btn-danger">注册</button>
                 </form>
@@ -69,3 +73,17 @@
 </div>
 </body>
 </html>
+<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#email").keydown(function(){
+            var email = $.trim($('#email').val());
+            var isEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+            if(!(isEmail.test(email))){
+                $("#span").text( "邮箱格式不正确");
+            }else if((isEmail.test(email))){
+                $("#span").text( "邮箱格式正确");
+            }
+        });
+    });
+</script>
