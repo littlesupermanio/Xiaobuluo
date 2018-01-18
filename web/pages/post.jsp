@@ -36,12 +36,33 @@
                         </div>
                     </div>
                 </div>
-                <div class="cell bg-light" style="padding: 5px;">
-                    <div class="text-right text-dark">
-                        <a href="/post.jhtml?type=deletePost&id=${post.id}">编辑</a>&nbsp;&nbsp;
-                        <a href="/post.jhtml?type=deletePost&id=${post.id}">删除</a>
+                <c:if test="${sessionScope.user.id == post.user.id}">
+                    <div class="cell bg-light" style="padding: 5px;">
+                        <div class="text-right text-dark">
+                            <a href="/post.jhtml?type=showEditPost&id=${post.id}">编辑</a>&nbsp;&nbsp;
+                            <a href="#" id="delete_post" data-toggle="modal" data-target="#deletePostModal">删除</a>
+                        </div>
                     </div>
-                </div>
+                    <div class="modal fade" id="deletePostModal" tabindex="-1" role="dialog"  aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">删除确认</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    确认删除这篇文章吗？
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary cursor-pointer" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary cursor-pointer" id="delete_post_confirm">确认</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
             </div>
             <div class="sep20"></div>
             <div class="box">
@@ -57,9 +78,31 @@
                             <div class="reply-content">
                                 ${comment.body}
                             </div>
-                            <div class="text-right text-dark">
-                                <a href="/post.jhtml?type=deletePost&id=${comment.id}">删除</a>
-                            </div>
+                            <c:if test="${sessionScope.user.id == comment.user.id}">
+                                <div class="text-right text-dark">
+                                    <a href="#" id="delete_comment" data-toggle="modal" data-target="#deleteCommentModal">删除</a>
+                                </div>
+                                <div class="modal fade" id="deleteCommentModal" tabindex="-1" role="dialog"  aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">删除确认</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                确认删除这条评论吗？
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary cursor-pointer" data-dismiss="modal">取消</button>
+                                                <button type="button" class="btn btn-primary cursor-pointer" id="delete_comment_confirm" onclick="window.location.href='/comment.jhtml?type=deleteComment&id=${comment.id}'">确认</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:if>
+
                         </div>
                     </div>
                 </c:forEach>
@@ -90,5 +133,14 @@
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script>
+    $(function () {
+        $("#delete_post").click(function (){
+            $("#delete_post_confirm").click(function () {
+                window.location.href = "/post.jhtml?type=deletePost&id=${post.id}"
+            })
+        })
 
+    })
+</script>
 </html>

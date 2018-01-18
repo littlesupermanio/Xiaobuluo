@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 public class PostAction extends HttpServlet {
@@ -50,10 +51,27 @@ public class PostAction extends HttpServlet {
             return;
         }
 
+        //敏感动作开始需要登录状态
+        User user = (User) request.getSession().getAttribute("user");
+        if(user==null)
+        {
+            Message msg = Message.failedMessage("请登录后操作","/pages/login.jsp");
+            request.setAttribute("message",msg);
+            request.getRequestDispatcher("/pages/message.jsp").forward(request,response);
+            return;
+        }
+
         if(Constants.POST_DELETE_POST.equals(type))
         {
             Integer postId = Integer.parseInt(request.getParameter("id"));
             deletePost(postId);
+            return;
+        }
+
+        if(Constants.POST_EDIT_POST.equals(type))
+        {
+            Integer postId = Integer.parseInt(request.getParameter("id"));
+            editPost(postId);
             return;
         }
 
@@ -70,14 +88,8 @@ public class PostAction extends HttpServlet {
         String body = request.getParameter("body");
         String section = request.getParameter("section");
         body = body.replace("\n","<br />");
-        User user = (User) request.getSession().getAttribute("user");
-        if(user==null)
-        {
-            Message msg = Message.failedMessage("请登录后操作","/pages/login.jsp");
-            request.setAttribute("message",msg);
-            request.getRequestDispatcher("/pages/message.jsp").forward(request,response);
-            return;
-        }
+
+
         Post post = new Post();
         post.setTitle(title);
         post.setBody(body);
@@ -87,6 +99,33 @@ public class PostAction extends HttpServlet {
         Message msg = Message.successMessage("发布主题成功","/post.jhtml?type=showPost&id="+postId);
         request.setAttribute("message",msg);
         request.getRequestDispatcher("/pages/message.jsp").forward(request,response);
+    }
+
+    private void editPost(Integer postId) {
+        try {
+            request.setCharacterEncoding("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        Post post = pDao.getPostById(postId);
+        String title = request.getParameter("title");
+        String body = request.getParameter("body");
+        String section = request.getParameter("section");
+        body = body.replace("\n","<br />");
+        post.setTitle(title);
+        post.setBody(body);
+        post.setSection_id(Integer.parseInt(section));
+        PostService postService = new PostServiceImpl();
+        postService.editPost(post);
+        Message msg = Message.successMessage("修改主题成功","/post.jhtml?type=showPost&id="+postId);
+        request.setAttribute("message",msg);
+        try {
+            request.getRequestDispatcher("/pages/message.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -117,8 +156,11 @@ public class PostAction extends HttpServlet {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else if(Constants.POST_SHOW_EDIT_POST.equals(type))
+        }else if(Constants.POST_SHOW_EDIT_POST.equals(type)) //修改文章内容的功能
         {
+            SectionDao sectionDao = new SectionDaoImpl();
+            List<Section> allSections = sectionDao.getAllSections();
+            request.setAttribute("allSections",allSections);
             request.setAttribute("post",post);
             try {
                 request.getRequestDispatcher("/pages/editpost.jsp").forward(request,response);
@@ -151,5 +193,14 @@ public class PostAction extends HttpServlet {
     {
         PostDao pDao = new PostDaoImpl();
         pDao.deletePostById(id);
+        Message msg = Message.successMessage("删除成功","/index.jhtml");
+        request.setAttribute("message",msg);
+        try {
+            request.getRequestDispatcher("/pages/message.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

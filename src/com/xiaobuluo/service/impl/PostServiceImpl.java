@@ -46,15 +46,17 @@ public class PostServiceImpl implements PostService{
         String title = post.getTitle();
         String body = post.getBody();
         Integer id = post.getId();
+        Integer section_id = post.getSection_id();
 
-        String sql = "update posts set title = ?  and body = ? where id =?";
+        String sql = "update posts set title = ? , body = ? , section_id = ? where id =?";
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1,title);
             ps.setString(2,body);
-            ps.setInt(3,id);
+            ps.setInt(3,section_id);
+            ps.setInt(4,id);
             ps.execute();
         } catch (SQLException e) {
             e.printStackTrace();

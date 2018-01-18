@@ -68,4 +68,13 @@
         <servlet-name>LogoutAction</servlet-name>
         <url-pattern>/logout.jhtml</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserAction</servlet-name>
+        <servlet-class>com.xiaobuluo.action.UserAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserAction</servlet-name>
+        <url-pattern>/user.jhtml</url-pattern>
+    </servlet-mapping>
 </web-app>

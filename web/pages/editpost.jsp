@@ -20,27 +20,27 @@
     <div class="row">
         <div class="col-9">
             <div class="box" style="padding: 20px;">
-                <form action="/post.jhtml" method="post" id="editpost_form">
+                <form action="/post.jhtml?type=editPost&id=${post.id}" method="post" id="editpost_form">
                     <h1>修改主题</h1>
                     <div class="form-group">
                         <label>标题</label>
-                        <input type="text" class="form-control" placeholder="请在这里输入你的标题" name="title" value="${post.title}">
+                        <input type="text" class="form-control" placeholder="请在这里输入你的标题" name="title" id="title">
                         <small class="form-text text-muted">您的标题必须能够展示文章的主题</small>
                     </div>
                     <div class="form-group">
                         <label>内容</label>
-                        <textarea class="form-control" placeholder="请在这里输入文章的内容" rows="10" name="body">${post.body}</textarea>
+                        <textarea class="form-control" placeholder="请在这里输入文章的内容" rows="10" name="body" id="content">${post.body}</textarea>
                     </div>
                     <div class="form-group">
                         <label style="line-height: 5px;">选择您要发表的板块</label>
-                        <select class="custom-select custom-select-lg mb-3">
+                        <select class="custom-select custom-select-lg mb-3" name="section">
                             <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <c:forEach items="${allSections}" var="section">
+                                <option value="${section.id}">${section.name}</option>
+                            </c:forEach>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane"></i>&nbsp;&nbsp;创建新的主题</button>
+                    <button type="submit" class="btn btn-success cursor-pointer"><i class="fa fa-pencil"></i>&nbsp;&nbsp;修改主题</button>
                 </form>
             </div>
         </div>
@@ -76,5 +76,7 @@
             return false;
         }
     });
+
+    $("#title").val('${post.title}');
 </script>
 </html>

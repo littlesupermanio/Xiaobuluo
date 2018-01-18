@@ -33,4 +33,22 @@ public class CommentServiceImpl implements CommentService {
             DataSourceUtil.close(rs, ps, con);
         }
     }
+
+    @Override
+    public void deleteCommentById(int id) {
+        Connection con = DataSourceUtil.getConnection();
+
+        String sql = "delete from comments where id = ?";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            DataSourceUtil.close(rs, ps, con);
+        }
+    }
 }

@@ -12,4 +12,6 @@ public interface CommentDao {
     public List<Comment> getCommentsByPostId(int id);
 
     public int getCommentsCountByPostId(int id);
+
+    public Comment getCommentById(int id);
 }

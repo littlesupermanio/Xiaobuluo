@@ -1,5 +1,7 @@
 package com.xiaobuluo.action;
 
+import com.xiaobuluo.dao.CommentDao;
+import com.xiaobuluo.dao.jdbc.CommentDaoImpl;
 import com.xiaobuluo.entity.Comment;
 import com.xiaobuluo.entity.Message;
 import com.xiaobuluo.entity.User;
@@ -55,6 +57,27 @@ public class CommentAction extends HttpServlet {
             message.setJumpUrl(jumpUrl);
             request.setAttribute("message",message);
             request.getRequestDispatcher("/pages/message.jsp").forward(request,response);
+        }
+        if(Constants.COMMENT_DELETE_COMMENT.equals(type))
+        {
+            if(request.getSession().getAttribute("user")==null)
+            {
+                Message msg = Message.failedMessage("请登录后操作","/pages/login.jsp");
+                request.setAttribute("message",msg);
+                request.getRequestDispatcher("/pages/message.jsp").forward(request,response);
+                return;
+            }
+            String id = request.getParameter("id");
+            System.out.println(id);
+            CommentDao commentDao = new CommentDaoImpl();
+            Comment comment = commentDao.getCommentById(Integer.parseInt(id));
+            Integer post_id = comment.getPost_id();
+            CommentService commentService = new CommentServiceImpl();
+            commentService.deleteCommentById(Integer.parseInt(id));
+            Message msg = Message.successMessage("删除评论成功","/post.jhtml?type=showPost&id="+post_id);
+            request.setAttribute("message",msg);
+            request.getRequestDispatcher("/pages/message.jsp").forward(request,response);
+            return;
         }
     }
 

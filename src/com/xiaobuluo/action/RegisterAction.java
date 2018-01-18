@@ -4,11 +4,9 @@ import com.xiaobuluo.dao.UserDao;
 import com.xiaobuluo.dao.jdbc.UserDaoImpl;
 import com.xiaobuluo.entity.Message;
 import com.xiaobuluo.entity.User;
-import com.xiaobuluo.service.UserServiceDao;
 import com.xiaobuluo.util.Utils;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -7,8 +7,8 @@ public class Constants {
     public static String POST_NEW_POST = "newPost";
     public static String POST_SHOW_POST = "showPost";
     public static String POST_SHOW_ALL_POSTS = "showAllPosts";
+    public static String POST_SHOW_EDIT_POST = "showEditPost";
     public static String POST_EDIT_POST = "editPost";
-    public static String POST_SHOW_EDIT_POST = "editPost";
 
     // 获取待评论订单操作标识符
     public static String COMMENT_GET_WAIT_COMMENTS = "getWaitComments";
@@ -20,4 +20,6 @@ public class Constants {
     public static String COMMENT_EDIT_COMMENT = "editComment";
 
     public static String USER_KEY = "user";
+    public static String USER_SHOW_USER = "showUser";
+
 }

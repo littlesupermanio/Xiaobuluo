@@ -61,5 +61,28 @@ public class CommentDaoImpl implements CommentDao {
         return commentsCount;
     }
 
+    @Override
+    public Comment getCommentById(int id) {
+        Connection con = DataSourceUtil.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "select * from comments where id=?";
+        Comment comment = null;
+        int commentsCount = 0;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            rs.next();
+            comment = Packager.packComment(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            DataSourceUtil.close(rs, ps, con);
+        }
+        return comment;
+    }
+
 
 }

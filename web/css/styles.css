@@ -231,4 +231,8 @@ h1 {
     color:gray;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 
