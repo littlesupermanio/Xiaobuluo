@@ -9,5 +9,7 @@ public interface PostDao {
 
     public Post getPostById(int id);
 
+    public List<Post> getPostsByUserId(int id);
+
     public void deletePostById(int id);
 }
