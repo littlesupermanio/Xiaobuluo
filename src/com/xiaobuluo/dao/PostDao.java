@@ -11,5 +11,8 @@ public interface PostDao {
 
     public List<Post> getPostsByUserId(int id);
 
+    public List<Post> getPostsBySectionId(int id);
+
     public void deletePostById(int id);
+
 }

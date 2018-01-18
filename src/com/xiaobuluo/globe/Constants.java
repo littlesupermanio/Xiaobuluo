@@ -13,4 +13,6 @@ public class Constants {
     public static String COMMENT_GET_FINISH_COMMENT = "getFinishComment";
     // 提交评论操作标识符
     public static String COMMENT_SUBMIT_COMMENT = "submitComment";
+    public static String COMMENT_DELETE_COMMENT = "deleteComment";
+    public static String COMMENT_EDIT_COMMENT = "editComment";
 }

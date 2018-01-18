@@ -11,7 +11,7 @@
         <property name="maxIdleTime">600</property>  
         <property name="maxPoolSize">20</property>  
         <property name="minPoolSize">2</property>  
-        <property name="maxStatements">60</property>  
+        <property name="maxStatements">0</property>
         <property name="maxStatementsPerConnection">3</property>   
     </default-config>  
 </c3p0-config>

@@ -1,6 +1,7 @@
 package com.xiaobuluo.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class Post {
     private Integer id;
@@ -10,7 +11,33 @@ public class Post {
     private String body;
     private Date created_at;
     private Date update_at;
+    private String time_interval;
+    private User user;
+    private List<Comment> comments;
 
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getTime_interval() {
+        return time_interval;
+    }
+
+    public void setTime_interval(String time_interval) {
+        this.time_interval = time_interval;
+    }
 
     public Integer getId() {
         return id;

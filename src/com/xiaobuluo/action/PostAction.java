@@ -1,7 +1,10 @@
 package com.xiaobuluo.action;
 
+import com.xiaobuluo.dao.CommentDao;
 import com.xiaobuluo.dao.PostDao;
+import com.xiaobuluo.dao.jdbc.CommentDaoImpl;
 import com.xiaobuluo.dao.jdbc.PostDaoImpl;
+import com.xiaobuluo.entity.Comment;
 import com.xiaobuluo.entity.Post;
 import com.xiaobuluo.globe.Constants;
 import com.xiaobuluo.service.PostService;
@@ -74,9 +77,12 @@ public class PostAction extends HttpServlet {
     public void showPost(int id)
     {
         PostDao pDao = new PostDaoImpl();
+        CommentDao cDao = new CommentDaoImpl();
         Post post = pDao.getPostById(id);
-        System.out.println(post.getTitle());
+        List<Comment> comments = cDao.getCommentsByPostId(id);
+
         request.setAttribute("post",post);
+        request.setAttribute("comments",comments);
         try {
             request.getRequestDispatcher("/pages/post.jsp").forward(request,response);
         } catch (ServletException e) {

@@ -9,11 +9,28 @@ public class Comment {
     private String body;
     private Date created_at;
     private Date updated_at;
+    private String time_interval;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getTime_interval() {
+        return time_interval;
+    }
+
+    public void setTime_interval(String time_interval) {
+        this.time_interval = time_interval;
+    }
 
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }

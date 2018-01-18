@@ -3,6 +3,7 @@ package com.xiaobuluo.dao.jdbc;
 import com.xiaobuluo.dao.CommentDao;
 import com.xiaobuluo.entity.Comment;
 import com.xiaobuluo.util.DataSourceUtil;
+import com.xiaobuluo.util.Packager;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -27,19 +28,7 @@ public class CommentDaoImpl implements CommentDao {
             ps.setInt(1,id);
             rs = ps.executeQuery();
             while(rs.next()){
-                Comment comment = new Comment();
-                int comment_id = rs.getInt("id");
-                int user_id = rs.getInt("user_id");
-                int post_id = rs.getInt("section_id");
-                String body = rs.getString("body");
-                Date created_at = rs.getDate("created_at");
-                Date updated_at = rs.getDate("updated_at");
-                comment.setId(comment_id);
-                comment.setBody(body);
-                comment.setUser_id(user_id);
-                comment.setPost_id(post_id);
-                comment.setCreated_at(created_at);
-                comment.setUpdated_at(updated_at);
+                Comment comment = Packager.packComment(rs);
                 comments.add(comment);
             }
         } catch (SQLException e) {

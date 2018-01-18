@@ -24,4 +24,12 @@
         <url-pattern>/post.jhtml</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CommentAction</servlet-name>
+        <servlet-class>com.xiaobuluo.action.CommentAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CommentAction</servlet-name>
+        <url-pattern>/comment.jhtml</url-pattern>
+    </servlet-mapping>
 </web-app>
