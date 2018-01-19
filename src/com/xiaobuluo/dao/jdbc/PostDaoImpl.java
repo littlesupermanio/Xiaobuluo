@@ -113,6 +113,8 @@ public class PostDaoImpl implements PostDao {
     }
 
 
+
+
     @Override
     public void deletePostById(int id) {
         Connection con = DataSourceUtil.getConnection();
@@ -132,7 +134,10 @@ public class PostDaoImpl implements PostDao {
         }
     }
 
-
+    @Override
+    public int getPostsCountByUserId(int id) {
+        return 0;
+    }
 
 
 }

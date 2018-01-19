@@ -15,4 +15,6 @@ public interface PostDao {
 
     public void deletePostById(int id);
 
+    public int getPostsCountByUserId(int id);
+
 }

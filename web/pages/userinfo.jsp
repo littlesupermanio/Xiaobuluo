@@ -24,27 +24,21 @@
                     <h1 style="font-weight: bold">用户中心</h1></br>
                     <div class="form-group">
                         <label>姓名:</label>
-                        <td>gh</td>
+                        <td>${user.name}</td>
                     </div>
                     <div class="form-group">
-                        <label>密码:</label>
-                        <td>gh</td>
-                    </div>
-                    <div class="form-group">
-                        <label>电话:</label>
-                        <td>gh</td>
-                    </div>
-                    <div class="form-group">
-                        <label>email:</label>
-                        <td>gh</td>
+                        <label>Email:</label>
+                        <td>${user.email}</td>
                     </div>
                     <div class="form-group">
                         <label>注册时间:</label>
-                        <td>gh</td>
+                        <td>${user.created_at}</td>
+                    </div>
+                    <div class="form-group">
+                        <label>发帖数量:</label>
+                        <td>${user.postcount}</td>
                     </div>
                     <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane"></i>&nbsp;&nbsp;修改</button>
-
-
                 </form>
             </div>
         </div>
