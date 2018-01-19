@@ -1,5 +1,6 @@
 package com.xiaobuluo.dao.jdbc;
 
+import com.xiaobuluo.dao.PostDao;
 import com.xiaobuluo.dao.SectionDao;
 import com.xiaobuluo.entity.Section;
 import com.xiaobuluo.util.DataSourceUtil;
@@ -27,6 +28,12 @@ public class SectionDaoImpl implements SectionDao {
             rs = ps.executeQuery();
             while(rs.next()){
                 Section section = Packager.packSection(rs);
+                SectionDao sectionDao = new SectionDaoImpl();
+                Section parent_section = sectionDao.getSectionById(section.getParent_id());
+                section.setParent_section(parent_section);
+                PostDao postDao = new PostDaoImpl();
+                int posts_count = postDao.getPostsCountBySectionId(rs.getInt("id"));
+                section.setPosts_count(posts_count);
                 sections.add(section);
             }
         } catch (SQLException e) {
@@ -79,6 +86,12 @@ public class SectionDaoImpl implements SectionDao {
 
             while(rs.next()){
                 Section section = Packager.packSection(rs);
+                SectionDao sectionDao = new SectionDaoImpl();
+                Section parent_section = sectionDao.getSectionById(section.getParent_id());
+                section.setParent_section(parent_section);
+                PostDao postDao = new PostDaoImpl();
+                int posts_count = postDao.getPostsCountBySectionId(rs.getInt("id"));
+                section.setPosts_count(posts_count);
                 sections.add(section);
             }
         } catch (SQLException e) {
@@ -104,6 +117,12 @@ public class SectionDaoImpl implements SectionDao {
             rs = ps.executeQuery();
             while(rs.next()){
                 section = Packager.packSection(rs);
+                SectionDao sectionDao = new SectionDaoImpl();
+                Section parent_section = sectionDao.getSectionById(section.getParent_id());
+                section.setParent_section(parent_section);
+                PostDao postDao = new PostDaoImpl();
+                int posts_count = postDao.getPostsCountBySectionId(rs.getInt("id"));
+                section.setPosts_count(posts_count);
             }
         } catch (SQLException e) {
             e.printStackTrace();

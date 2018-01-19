@@ -1,6 +1,7 @@
 package com.xiaobuluo.entity;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by DylanHo on 08/01/2018.
@@ -15,6 +16,15 @@ public class User {
     private String avatar;
     private Date register_date;
     private Date lastlogin_date;
+    private Integer posts_count;
+
+    public Integer getPosts_count() {
+        return posts_count;
+    }
+
+    public void setPosts_count(Integer posts_count) {
+        this.posts_count = posts_count;
+    }
 
     public User(int id) {
         this.id = id;

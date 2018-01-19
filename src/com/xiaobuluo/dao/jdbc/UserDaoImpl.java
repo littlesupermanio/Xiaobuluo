@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by DylanHo on 18/01/2018.
@@ -58,6 +59,9 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
+
+
+
     @Override
     public void updateUserPassword(User user) {
         String sql = "update user set pass = ? where id = ?";
@@ -103,6 +107,49 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public List<User> getAllUsers() {
+        Connection con = DataSourceUtil.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT * FROM users";
+        List<User> users = new ArrayList<>();
+        try {
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                User user = Packager.packUser(rs);
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            DataSourceUtil.close(rs, ps, con);
+        }
+        return users;
+    }
+
+    @Override
+    public void deleteUser(User user) {
+        Connection con = DataSourceUtil.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Integer id = user.getId();
+
+        String sql = "delete FROM users where id = ?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            DataSourceUtil.close(rs, ps, con);
+        }
+
+    }
+
+    @Override
     public void update(User user) {
         StringBuilder sql =new StringBuilder( "update user set name=?,email=?");
         ArrayList<Object> pList=new ArrayList<Object>();
@@ -139,4 +186,6 @@ public class UserDaoImpl implements UserDao {
             DataSourceUtil.close(null, stmt, conn);
         }
     }
+
+
 }

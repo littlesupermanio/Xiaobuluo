@@ -17,4 +17,6 @@ public interface PostDao {
 
     public int getPostsCountByUserId(int id);
 
+    public int getPostsCountBySectionId(int id);
+
 }

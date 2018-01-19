@@ -1,9 +1,11 @@
 package com.xiaobuluo.util;
 
 import com.xiaobuluo.dao.CommentDao;
+import com.xiaobuluo.dao.PostDao;
 import com.xiaobuluo.dao.SectionDao;
 import com.xiaobuluo.dao.UserDao;
 import com.xiaobuluo.dao.jdbc.CommentDaoImpl;
+import com.xiaobuluo.dao.jdbc.PostDaoImpl;
 import com.xiaobuluo.dao.jdbc.SectionDaoImpl;
 import com.xiaobuluo.dao.jdbc.UserDaoImpl;
 import com.xiaobuluo.entity.Comment;
@@ -30,6 +32,9 @@ public class Packager {
         user.setEmail(rs.getString("email"));
         user.setRegister_date(rs.getDate("created_at"));
         user.setLastlogin_date(rs.getDate("updated_at"));
+        PostDao postDao = new PostDaoImpl();
+        int posts_count = postDao.getPostsCountByUserId(rs.getInt("id"));
+        user.setPosts_count(posts_count);
         return user;
     }
 

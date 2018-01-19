@@ -100,4 +100,17 @@
         <filter-name>UserFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>com.xiaobuluo.filter.AdminFilter</filter-class>
+        <init-param>
+            <param-name>checked</param-name>
+            <param-value>/pages/modifyuserinfo.jsp;avatar.jhtml;comment.jhtml</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>UserFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

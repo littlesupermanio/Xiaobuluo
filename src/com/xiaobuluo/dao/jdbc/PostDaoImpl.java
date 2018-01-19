@@ -112,9 +112,6 @@ public class PostDaoImpl implements PostDao {
         return posts;
     }
 
-
-
-
     @Override
     public void deletePostById(int id) {
         Connection con = DataSourceUtil.getConnection();
@@ -135,9 +132,51 @@ public class PostDaoImpl implements PostDao {
     }
 
     @Override
-    public int getPostsCountByUserId(int id) {
-        return 0;
+    public int getPostsCountByUserId(int id){
+        Integer count = 0;
+        Connection con = DataSourceUtil.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "select count(*) as posts_count from posts where user_id = ?";
+
+        List<Post> posts = new ArrayList<>();
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            rs.next();
+            count = rs.getInt("posts_count");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            DataSourceUtil.close(rs, ps, con);
+        }
+        return count;
     }
 
+    @Override
+    public int getPostsCountBySectionId(int id){
+        Integer count = 0;
+        Connection con = DataSourceUtil.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "select count(*) as posts_count from posts where section_id = ?";
+
+        List<Post> posts = new ArrayList<>();
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            rs.next();
+            count = rs.getInt("posts_count");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            DataSourceUtil.close(rs, ps, con);
+        }
+        return count;
+    }
 
 }

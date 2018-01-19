@@ -34,6 +34,7 @@ public class UserFilter implements Filter {
                     request.getRequestDispatcher("/pages/message.jsp").forward(request,response);
                 }else{
                     chain.doFilter(req, resp);
+                    return;
                 }
             }
         }

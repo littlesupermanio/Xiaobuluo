@@ -7,7 +7,27 @@ public class Section {
     private String name;
     private Integer manager_id;
     private Integer parent_id;
+    private Section parent_section;
+
     private List<Section> subSections;
+    private Integer posts_count;
+
+    public Integer getPosts_count() {
+        return posts_count;
+    }
+
+
+    public Section getParent_section() {
+        return parent_section;
+    }
+
+    public void setParent_section(Section parent_section) {
+        this.parent_section = parent_section;
+    }
+
+    public void setPosts_count(Integer posts_count) {
+        this.posts_count = posts_count;
+    }
 
     public Integer getId() {
         return id;

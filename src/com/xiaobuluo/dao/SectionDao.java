@@ -12,4 +12,5 @@ public interface SectionDao {
     public List<Section> getMainSections();
 
     public Section getSectionById(int id);
+
 }
