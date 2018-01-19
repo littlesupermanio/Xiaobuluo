@@ -1,3 +1,4 @@
+<%@ page import="com.xiaobuluo.globe.Constants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -14,10 +15,10 @@
 </head>
 <body>
 <%@ include file="/common/nav_admin.jsp"%>
-<div class="container content-main" style="padding-top: 50px;">
+<div class="container content-main" style="padding-top: 20px;">
     <h2>版块管理</h2>
     <div class="sep20"></div>
-    <button type="button" class="btn btn-warning cursor-pointer"><i class="fa fa-plus"></i>&nbsp;添加新版块</button>
+    <button type="button" class="btn btn-warning cursor-pointer" onclick="window.location.href = '/admin/addsection_admin.jsp'"><i class="fa fa-plus"></i>&nbsp;添加新版块</button>
     <div class="sep10"></div>
     <table class="table table-striped">
         <thead class="thead-dark">

@@ -14,7 +14,7 @@
 </head>
 <body>
 <%@ include file="/common/nav_admin.jsp"%>
-<div class="container content-main" style="padding-top: 50px;">
+<div class="container content-main" style="padding-top: 20px;">
     <h2>用户管理</h2>
     <div class="sep20"></div>
     <table class="table table-striped">
@@ -35,7 +35,6 @@
                 <td>${user.email}</td>
                 <td>${user.posts_count}</td>
                 <td>
-                    <button type="button" class="btn btn-outline-warning btn-sm cursor-pointer">编辑</button>
                     <button type="button" class="btn btn-outline-danger btn-sm cursor-pointer" onclick="window.location.href = '/user.jhtml?type=deleteUserAdmin&id='+${user.id}">删除</button>
                 </td>
             </tr>

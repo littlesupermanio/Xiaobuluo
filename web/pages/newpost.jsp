@@ -23,16 +23,16 @@
                     <h1>创建新主题</h1>
                     <div class="form-group">
                         <label>标题</label>
-                        <input type="text" class="form-control" placeholder="请在这里输入你的标题" name="title">
+                        <input type="text" class="form-control" placeholder="请在这里输入你的标题" name="title" id="title">
                         <small class="form-text text-muted">您的标题必须能够展示文章的主题</small>
                     </div>
                     <div class="form-group">
                         <label>内容</label>
-                        <textarea class="form-control" placeholder="请在这里输入文章的内容" rows="10" name="body"></textarea>
+                        <textarea class="form-control" id="body" placeholder="请在这里输入文章的内容" rows="10" name="body"></textarea>
                     </div>
                     <div class="form-group">
                         <label style="line-height: 5px;">选择您要发表的板块</label>
-                        <select class="custom-select custom-select-lg mb-3" name="section">
+                        <select class="custom-select custom-select-lg mb-3" name="section" id="section_panel">
                             <option selected>Open this select menu</option>
                             <c:forEach items="${allSections}" var="section">
                                 <option value="${section.id}">${section.name}</option>
@@ -58,21 +58,13 @@
 <script src="../js/bootstrap.min.js"></script>
 <script type="text/javascript">
     $(function(){
-        $('#editpost_form').bind('submit',function () {  //给form标签绑定submit事件
-            var i=0;
-            this.$("input").each(function(){  //遍历input标签，判断是否有内容未填写
-                var vl=$(this).val();
-                if(vl==""){
-                    i=1;
-                }
-            });
-            var t=this.$('textarea').val();  //判断textarea标签是否填写
-            if (t=='') {
-                i=1;
-            }
-            if (i==1) {  //如果有未填写的，则return false阻止提交
-                alert('请将信息填写完整');
-                return false;
+        $("form").submit(function(e){
+            var titleDOM = $('#title');
+            var bodyDOM = $('#body');
+            if(titleDOM.val()===""|| bodyDOM.val()=== "" || $( "#section_panel option:selected" ).text() === "Open this select menu")
+            {
+                alert("请填写完表单，并且选择对应版块后在提交");
+                e.preventDefault();
             }
         });
     });

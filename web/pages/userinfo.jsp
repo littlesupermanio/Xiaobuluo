@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>修改主题</title>
+    <title>用户中心</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,8 +34,9 @@
                         <label>注册时间:</label>
                         <td>${user.register_date}</td>
                     </div>
-
-                    <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane"></i>&nbsp;&nbsp;修改</button>
+                    <c:if test="${sessionScope.user.id == user.id}">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane"></i>&nbsp;&nbsp;修改</button>
+                    </c:if>
                 </form>
             </div>
         </div>

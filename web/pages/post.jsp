@@ -113,7 +113,7 @@
                     <h4>添加新评论</h4>
                     <div class="form-group">
 
-                        <textarea class="form-control" placeholder="请在这里输入评论的内容" rows="3" name="comment_body"></textarea>
+                        <textarea class="form-control" placeholder="请在这里输入评论的内容" rows="3" name="comment_body" id="comment_body"></textarea>
                     </div>
                     <button type="submit" class="btn btn-info"><i class="fa fa-commenting-o"></i>&nbsp;&nbsp;评论</button>
                 </form>
@@ -140,6 +140,15 @@
                 window.location.href = "/post.jhtml?type=deletePost&id=${post.id}"
             })
         })
+
+        $("form").submit(function(e){
+            var bodyDOM = $('#comment_body');
+            if(bodyDOM.val()=== "")
+            {
+                alert("请填写完表单再提交");
+                e.preventDefault();
+            }
+        });
 
     })
 </script>

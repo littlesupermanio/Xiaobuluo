@@ -1,3 +1,4 @@
+<%@ page import="com.xiaobuluo.globe.Constants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -10,16 +11,16 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/admin/index.jsp">首页 <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">用户管理</a>
+                    <a class="nav-link" href="/user.jhtml?type=<%= Constants.ADMIN_USER_SHOWLIST%>">用户管理</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">版块管理</a>
+                    <a class="nav-link" href="/section.jhtml?type=<%= Constants.ADMIN_SECTION_SHOWLIST%>">版块管理</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">返回至小部落&nbsp;<i class="fa fa-mail-reply"></i></a>
+                    <a class="nav-link" href="/index.jhtml">返回至小部落&nbsp;<i class="fa fa-mail-reply"></i></a>
                 </li>
             </ul>
             <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">

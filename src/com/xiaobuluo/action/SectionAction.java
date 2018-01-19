@@ -66,7 +66,7 @@ public class SectionAction extends HttpServlet {
             request.getRequestDispatcher("/pages/message.jsp").forward(request,response);
         }
 
-        
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

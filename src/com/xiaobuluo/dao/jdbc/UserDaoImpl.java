@@ -41,7 +41,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void saveUser(User user) {
-        String sql = "INSERT INTO users(name,email,password) VALUES(?,?,?)";
+        String sql = "INSERT INTO users(name,email,password,created_at) VALUES(?,?,?,NOW())";
         Connection con = DataSourceUtil.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -58,8 +58,6 @@ public class UserDaoImpl implements UserDao {
             DataSourceUtil.close(rs, ps, con);
         }
     }
-
-
 
 
     @Override
