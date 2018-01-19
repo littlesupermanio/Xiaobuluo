@@ -32,12 +32,9 @@
                     </div>
                     <div class="form-group">
                         <label>注册时间:</label>
-                        <td>${user.created_at}</td>
+                        <td>${user.register_date}</td>
                     </div>
-                    <div class="form-group">
-                        <label>发帖数量:</label>
-                        <td>${user.postcount}</td>
-                    </div>
+
                     <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane"></i>&nbsp;&nbsp;修改</button>
                 </form>
             </div>

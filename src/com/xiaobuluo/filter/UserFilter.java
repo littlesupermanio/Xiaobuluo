@@ -19,6 +19,7 @@ public class UserFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
+        request.setCharacterEncoding("UTF-8");
         System.out.println("UserFilter获得请求："+request.getRequestURI());
 
         for (int i = 0; i < page_urls.length; i++) {

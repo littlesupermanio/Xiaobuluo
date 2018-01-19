@@ -53,7 +53,7 @@
                             </h6>
                             <p class="post-cell-about">
                                 <a class="topic_tag" href="/section.jhtml?sectionId=${post.section.id}">${post.section.name}</a>
-                                • 													<a href="http://wenda.wecenter.com/people/kuaiweb" class="aw-user-name">${post.user.name} </a>				<span class="text-color-999">发表了主题 • ${post.time_interval}前				</span>
+                                • 													<a href="#">${post.user.name} </a><span class="text-color-999">发表了主题 • ${post.time_interval}前				</span>
                             </p>
                         </div>
                     </div>

@@ -41,8 +41,10 @@ public class Packager {
         Post post = new Post();
         CommentDao commentDao = new CommentDaoImpl();
         SectionDao sectionDao = new SectionDaoImpl();
+        UserDao userDao = new UserDaoImpl();
         List<Comment> comments = commentDao.getCommentsByPostId(rs.getInt("id"));
         Section section = sectionDao.getSectionById(rs.getInt("section_id"));
+        User user = userDao.getUserById(rs.getInt("user_id"));
         Date created_at = rs.getTimestamp("created_at");
         post.setId(rs.getInt("id"));
         post.setUser_id(rs.getInt("user_id"));
@@ -50,6 +52,7 @@ public class Packager {
         post.setTitle(rs.getString("title"));
         post.setBody(rs.getString("body"));
         post.setCreated_at(created_at);
+        post.setUser(user);
         post.setUpdate_at(rs.getDate("updated_at"));
         post.setTime_interval(Utils.diffTimeFromNow(created_at));
         post.setComments(comments);

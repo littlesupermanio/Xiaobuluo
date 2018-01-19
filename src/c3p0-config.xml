@@ -2,13 +2,13 @@
 <c3p0-config>  
     <default-config>  
         <property name="driverClass">com.mysql.jdbc.Driver</property>  
-        <property name="user">root</property>  
+        <property name="user">hohoibin</property>
         <property name="password">123456</property>
-        <property name="jdbcUrl">jdbc:mysql://localhost:3306/bbs</property>
-        <property name="checkoutTimeout">10000</property>  
-        <property name="idleConnectionTestPeriod">10</property>  
-        <property name="initialPoolSize">5</property>  
-        <property name="maxIdleTime">600</property>  
+        <property name="jdbcUrl">jdbc:mysql://192.168.56.10:3306/bbs</property>
+        <property name="checkoutTimeout">100000</property>
+        <property name="idleConnectionTestPeriod">0</property>
+        <property name="initialPoolSize">10</property>
+        <property name="maxIdleTime">1000</property>
         <property name="maxPoolSize">20</property>  
         <property name="minPoolSize">2</property>  
         <property name="maxStatements">0</property>
