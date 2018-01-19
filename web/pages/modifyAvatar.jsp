@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>修改我的信息</title>
+    <title>修改我的头像</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,29 +20,14 @@
     <div class="row">
         <div class="col-9">
             <div class="box" style="padding: 20px;">
-                <form action="#" method="post" id="editpost_form">
+                <form action="/avatar.jhtml" method="post" enctype="multipart/form-data" >
                     <h1 style="font-weight: bold">用户中心</h1></br>
                     <div class="form-group">
-                        <label>姓名:</label>
-                        <input type="text" class="form-control" placeholder="请在这里输入你修改的姓名" name="title">
-                    </div>
-                    <div class="form-group">
-                        <label>密码:</label>
-                        <input type="text" class="form-control" placeholder="请在这里输入你修改的密码" name="title">
-                    </div>
-                    <div class="form-group">
-                        <label>电话:</label>
-                        <input type="text"  class="form-control" placeholder="请在这里输入你修改的电话" name="title">
-                    </div>
-                    <div class="form-group">
-                        <label>email:</label>
-                        <input type="text" class="form-control" placeholder="请在这里输入你修改的email" name="title">
+                        <label>选择您的头像文件</label>
+                        <input type="file" class="form-control-file" name="fileName">
                     </div>
                     <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane"></i>&nbsp;&nbsp;确认</button>
                 </form>
-                <div class="sep10"></div>
-                <button class="btn btn-warning cursor-pointer" onclick="window.location.href = '/pages/modifyAvatar.jsp'"><i class="fa fa-user-circle"></i>&nbsp;&nbsp;修改头像</button>
-
             </div>
         </div>
         <div class="col-3">

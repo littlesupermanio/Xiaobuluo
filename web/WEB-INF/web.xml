@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <welcome-file-list>
-        <welcome-file>pages/index.jsp</welcome-file>
+        <welcome-file>/index.jhtml</welcome-file>
     </welcome-file-list>
     <servlet>
         <servlet-name>LoginAction</servlet-name>
@@ -77,4 +77,27 @@
         <servlet-name>UserAction</servlet-name>
         <url-pattern>/user.jhtml</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AvatarAction</servlet-name>
+        <servlet-class>com.xiaobuluo.action.AvatarAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AvatarAction</servlet-name>
+        <url-pattern>/avatar.jhtml</url-pattern>
+    </servlet-mapping>
+
+
+    <filter>
+        <filter-name>UserFilter</filter-name>
+        <filter-class>com.xiaobuluo.filter.UserFilter</filter-class>
+        <init-param>
+            <param-name>checked</param-name>
+            <param-value>/pages/modifyuserinfo.jsp;avatar.jhtml;post.jhtml;comment.jhtml</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>UserFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

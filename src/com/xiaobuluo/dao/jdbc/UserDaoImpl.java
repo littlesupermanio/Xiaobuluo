@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by DylanHo on 18/01/2018.
@@ -99,5 +100,43 @@ public class UserDaoImpl implements UserDao {
             DataSourceUtil.close(rs, ps, con);
         }
         return user;
+    }
+
+    @Override
+    public void update(User user) {
+        StringBuilder sql =new StringBuilder( "update user set name=?,email=?");
+        ArrayList<Object> pList=new ArrayList<Object>();
+        pList.add(user.getName());
+        pList.add(user.getEmail());
+        if(user.getPassword()!=null){
+            sql.append(",password=?");
+            pList.add(user.getPassword());
+        }
+        if(user.getAvatar()!=null){
+            sql.append(",avatar=?");
+            pList.add(user.getAvatar());
+        }
+        sql.append(" where id=?");
+        pList.add(user.getId());
+        Object[] param=pList.toArray();
+        saveOrUpdateOrDelete(sql.toString(), param);
+    }
+
+    private void saveOrUpdateOrDelete(String sql, Object values[]) {
+        PreparedStatement stmt = null;
+        Connection conn = DataSourceUtil.getConnection();
+        try {
+            stmt = conn.prepareStatement(sql);
+            if (values != null) {
+                for (int i = 0; i < values.length; i++) {
+                    stmt.setObject(i + 1, values[i]);
+                }
+            }
+            stmt.execute();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }finally {
+            DataSourceUtil.close(null, stmt, conn);
+        }
     }
 }
