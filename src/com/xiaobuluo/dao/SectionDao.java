@@ -13,4 +13,6 @@ public interface SectionDao {
 
     public Section getSectionById(int id);
 
+    public void deleteSectionById(int id);
+
 }

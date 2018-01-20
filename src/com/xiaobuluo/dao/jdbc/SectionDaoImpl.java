@@ -132,5 +132,23 @@ public class SectionDaoImpl implements SectionDao {
         return section;
     }
 
+    @Override
+    public void deleteSectionById(int id) {
+        Connection con = DataSourceUtil.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
+        String sql = "delete from sections where id = ? ";
+
+        Section section = new Section();
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            DataSourceUtil.close(rs, ps, con);
+        }
+    }
 }

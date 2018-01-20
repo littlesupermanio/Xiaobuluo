@@ -43,6 +43,7 @@ public class CommentAction extends HttpServlet {
             Comment comment = new Comment();
             Integer postId = Integer.parseInt(request.getParameter("postId"));
             String comment_body = request.getParameter("comment_body");
+            System.out.println(comment_body);
             comment_body = comment_body.replace("\n","<br />");
             comment.setPost_id(postId);
             comment.setUser_id(user.getId());

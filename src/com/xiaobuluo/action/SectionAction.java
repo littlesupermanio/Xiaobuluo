@@ -66,6 +66,16 @@ public class SectionAction extends HttpServlet {
             request.getRequestDispatcher("/pages/message.jsp").forward(request,response);
         }
 
+        if(Constants.ADMIN_SECTION_DELETE.equals(type))
+        {
+            checkUserStatus(loginUser);
+            String id = request.getParameter("id");
+            SectionDao sectionDao = new SectionDaoImpl();
+            sectionDao.deleteSectionById(Integer.parseInt(id));
+            Message msg = Message.successMessage("删除版块成功","/section.jhtml?type="+Constants.ADMIN_SECTION_SHOWLIST);
+            request.setAttribute("message",msg);
+            request.getRequestDispatcher("/pages/message.jsp").forward(request,response);
+        }
 
     }
 

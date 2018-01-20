@@ -39,7 +39,7 @@
                 <td>${section.posts_count}</td>
                 <td>
                     <button type="button" class="btn btn-outline-warning btn-sm cursor-pointer">编辑</button>
-                    <button type="button" class="btn btn-outline-danger btn-sm cursor-pointer" onclick="window.location.href = '/user.jhtml?type=deleteUserAdmin&id='+${user.id}">删除</button>
+                    <button type="button" class="btn btn-outline-danger btn-sm cursor-pointer" onclick="window.location.href = '/section.jhtml?type=<%= Constants.ADMIN_SECTION_DELETE%>&id=${section.id}'">删除</button>
                 </td>
             </tr>
         </c:forEach>

@@ -1,3 +1,13 @@
+<%@ page import="com.xiaobuluo.entity.User" %>
+<%@ page import="com.xiaobuluo.dao.UserDao" %>
+<%@ page import="com.xiaobuluo.dao.jdbc.UserDaoImpl" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.xiaobuluo.dao.PostDao" %>
+<%@ page import="com.xiaobuluo.dao.jdbc.PostDaoImpl" %>
+<%@ page import="com.xiaobuluo.entity.Post" %>
+<%@ page import="com.xiaobuluo.dao.SectionDao" %>
+<%@ page import="com.xiaobuluo.dao.jdbc.SectionDaoImpl" %>
+<%@ page import="com.xiaobuluo.entity.Section" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -25,7 +35,11 @@
                         用户总数
                     </div>
                     <div class="box-pane-number">
-                        38
+                        <%
+                            UserDao userDao = new UserDaoImpl();
+                            List<User> allUsers = userDao.getAllUsers();
+                        %>
+                        <%= allUsers.size()%>
                     </div>
                     <div class="box-pane-icon"><i class="fa fa-user fa-5x"></i></div>
                 </div>
@@ -36,7 +50,11 @@
                         帖子总数
                     </div>
                     <div class="box-pane-number">
-                        20
+                        <%
+                            PostDao postDao = new PostDaoImpl();
+                            List<Post> allPosts = postDao.getAllPosts();
+                        %>
+                        <%= allPosts.size()%>
                     </div>
                     <div class="box-pane-icon"><i class="fa fa-sticky-note fa-5x"></i></div>
                 </div>
@@ -47,7 +65,11 @@
                         版块总数
                     </div>
                     <div class="box-pane-number">
-                        5
+                        <%
+                            SectionDao sectionDao = new SectionDaoImpl();
+                            List<Section> allSections = sectionDao.getAllSections();
+                        %>
+                        <%= allSections.size()%>
                     </div>
                     <div class="box-pane-icon"><i class="fa fa-quote-right fa-5x"></i></div>
                 </div>

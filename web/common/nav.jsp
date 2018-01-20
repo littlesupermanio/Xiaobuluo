@@ -34,13 +34,18 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/user.jhtml?type=<%= Constants.USER_SHOW_USER%>&id=${user.id}">${user.name}</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/admin/index.jsp">管理中心</a>
+                                </li>
                             </c:when>
+
                         </c:choose>
                         <li class="nav-item">
                             <a class="nav-link" href="/logout.jhtml">注销</a>
                         </li>
                     </c:otherwise>
                 </c:choose>
+
             </ul>
         </div>
     </div>
